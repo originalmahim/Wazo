@@ -10,9 +10,9 @@ const Header = () => {
           </>
 
           return (
-          <div >
-
-          <div className="navbar bg-base-200 max-w-7xl mx-auto">
+          <div  >
+          <div className="bg-white">
+          <div className="navbar bg-[#ffffff] max-w-7xl mx-auto">
           <div className="navbar-start">
           <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -22,7 +22,7 @@ const Header = () => {
           {links}
           </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <img src="https://i.ibb.co/DMcxGH5/l8uywj4i.png" />
           </div>
           <div className="navbar-end">
           <div className="hidden lg:flex">
@@ -30,10 +30,11 @@ const Header = () => {
           {links}
           </ul>
           </div>
-          <a className="btn">Login</a>
+          <a className="btn bg-[#F9D6CD] ">Login</a>
           </div>
           </div>
-          <div className="max-w-7xl mx-auto px-4 lg:min-h-[70vh]">
+          </div>
+          <div className="lg:min-h-[70vh]">
           <Outlet></Outlet>
           </div>
           <Footer></Footer>
