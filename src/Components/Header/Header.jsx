@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 
 
@@ -22,7 +22,7 @@ const Header = () => {
           {links}
           </ul>
           </div>
-          <img src="https://i.ibb.co/DMcxGH5/l8uywj4i.png" />
+          <img className="w-24" src="https://i.ibb.co/DMcxGH5/l8uywj4i.png" />
           </div>
           <div className="navbar-end">
           <div className="hidden lg:flex">
@@ -30,11 +30,11 @@ const Header = () => {
           {links}
           </ul>
           </div>
-          <a className="btn bg-[#F9D6CD] ">Login</a>
+          <Link to= "/login" className="btn bg-[#e7d1e4] ">Login</Link>
           </div>
           </div>
           </div>
-          <div className="lg:min-h-[70vh]">
+          <div className="lg:min-h-[60vh]">
           <Outlet></Outlet>
           </div>
           <Footer></Footer>

@@ -8,7 +8,7 @@ const Banner = () => {
             id="slide1"
             className="carousel-item relative w-full"
             style={{
-            backgroundImage: `url('https://i.ibb.co/Lpd3Bts/replicate-prediction-4v2aj7jbbgvzjuia3wmmrworue.png')`,
+            backgroundImage: `url('https://i.ibb.co/KXWbyLj/Screenshot-2023-10-17-231718.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             }}
@@ -49,7 +49,7 @@ const Banner = () => {
             id="slide3"
             className="carousel-item relative w-full"
             style={{
-            backgroundImage: `url('https://i.ibb.co/HBvbNdF/Screenshot-2023-10-17-222025.png')`,
+            backgroundImage: `url('https://i.ibb.co/9g2cbHy/Screenshot-2023-10-17-232549.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             }}
