@@ -11,6 +11,9 @@ import About from './Components/About/About';
 import AuthProvider from './Contex/AuthProvider';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
+import AddProducts from './Components/AddProducts/AddProducts';
+import MyCart from './Components/MyCart/MyCart';
+import PrivateRaute from './Components/PrivateRaute/PrivateRaute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +34,14 @@ const router = createBrowserRouter([
     {
       path: "/signup",
       element: <SignUp></SignUp>
+    },
+    {
+      path: "/addproduct",
+      element: <PrivateRaute><AddProducts></AddProducts></PrivateRaute> 
+    },
+    {
+      path: "/cart",
+      element: <PrivateRaute><MyCart></MyCart></PrivateRaute>
     }
   ]
   },
