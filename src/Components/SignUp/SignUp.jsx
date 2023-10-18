@@ -12,8 +12,7 @@ import app from '../../Firebase/firebase.config';
 const SignUp = () => {
         const {CreateUser} = useContext(AuthContex)
 
-         const [registerError,setRegisterError] = useState('')
-        const [success,setSuccess] = useState('')
+          const [registerError,setRegisterError] = useState('')
         const [showPassword, setShowPassword] = useState(false);
 
   const location = useLocation()
@@ -43,11 +42,10 @@ const SignUp = () => {
         const url = e.target.photoUrl.value;
         
         setRegisterError('')
-        setSuccess('')
 
 
         if (!/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password)) {
-        return setRegisterError('password should be as long as the password contains the number and special character')    
+        return setRegisterError('password should at least 6 characters long and contains  number , letter and  special characters')    
         }
 
         if (password != confirmPassword) {
@@ -56,21 +54,21 @@ const SignUp = () => {
 
         CreateUser(email,password)
         .then(result => {
-              updateProfile(result.user,{
-                    displayName: name,
-                    photoURL: url,
-                  })
-                  Swal.fire(
-                        'Account Created',
-                        'You have Created Account successfully',
-                        'success'
-                      )
-//             navigate(location?.state ? location.state : '/')
-        setSuccess('Account Created Successfully')
+          updateProfile(result.user,{
+          displayName: name,
+          photoURL: url,
+          })
+          Swal.fire(
+          'Account Created',
+          'You have Created Account successfully',
+          'success'
+          )
+          navigate(location?.state ? location.state : '/')
 
         })
         .catch(error => {
-        setRegisterError(error.message);
+          console.error(error.message)
+       setRegisterError(error.message);
         })
 
         }
@@ -179,10 +177,6 @@ const SignUp = () => {
           
           <p className="text-red-400">{registerError}</p>
            
-          }
-          {
-          success &&
-          <p className="text-green-600">${success}</p>
           }
           <div className="text-center">
             <button onClick={handleGoogleSignup} className="btn bg-white text-blue-400"> <FcGoogle className='text-2xl' ></FcGoogle> Sign Up with Google</button>

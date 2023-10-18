@@ -1,7 +1,7 @@
 
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContex } from './../../Contex/AuthProvider';
 import Swal from 'sweetalert2';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -15,6 +15,8 @@ const Login = () => {
 
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
+
+  const [loginError,setLoginError] = useState('')
    
   const handleGoogleSignup = () => {
     signInWithPopup(auth,provider)
@@ -33,7 +35,7 @@ const Login = () => {
       const form = e.target;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(email,password);
+      setLoginError('')
       LogIn(email,password)
       .then(result => {
         Swal.fire(
@@ -43,7 +45,11 @@ const Login = () => {
           )
           navigate(location?.state ? location.state : '/')
       })
+      .catch(error => {
+        setLoginError(error.message)
+      })
   }
+
 
 
 
@@ -80,6 +86,9 @@ const Login = () => {
           </div>
           <button  className=" btn bg-[#8289eb] block w-full p-3 text-center rounded-lg text-white hover:text-black">Sign in</button>
           </form>
+          {
+            loginError && <p className='text-cente text-red-500' >{loginError}</p>
+          }
           <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16"></div>
           <p className="px-3 text-xl">Login with social accounts</p>

@@ -2,7 +2,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import { useContext } from 'react';
 import { AuthContex } from "../../Contex/AuthProvider";
-
+import Swal from 'sweetalert2';
 
 const Header = () => {
 
@@ -11,9 +11,22 @@ const Header = () => {
 
           const links = <>
           <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/applied">Add Product</NavLink></li>
-          <li><NavLink to="/blogs">My Cart</NavLink></li>
+          <li><NavLink to="/addproduct">Add Product</NavLink></li>
+          <li><NavLink to="/cart">My Cart</NavLink></li>
           </>
+
+        const handleLogOut = () => {
+          LogOut()
+          .then(result => {
+            Swal.fire(
+              'Loged Out',
+              'You have loged Out successfully',
+              'success'
+            )
+          })
+        }
+
+          
 
           return (
           <div  >
@@ -36,7 +49,7 @@ const Header = () => {
           {links}
           </ul>
           </div>
-          {  user ? <button onClick={() => LogOut()}  className="btn bg-[#e7d1e4] ">LogOut</button> :
+          {  user ? <button onClick={handleLogOut}  className="btn bg-[#e7d1e4] ">LogOut</button> :
           <Link to= "/login" className="btn bg-[#e7d1e4] ">Login</Link>
                     }
           </div>
