@@ -23,7 +23,7 @@ const SignUp = () => {
    
   const handleGoogleSignup = () => {
     signInWithPopup(auth,provider)
-    .then(result => {
+    .then(() => {
       Swal.fire(
       'Account Created',
       'You have Created Account successfully',

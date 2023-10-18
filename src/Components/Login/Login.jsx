@@ -20,7 +20,7 @@ const Login = () => {
    
   const handleGoogleSignup = () => {
     signInWithPopup(auth,provider)
-    .then(result => {
+    .then(() => {
       Swal.fire(
         'Loged In',
         'You have Loged In successfully',
@@ -37,7 +37,7 @@ const Login = () => {
       const password = form.password.value;
       setLoginError('')
       LogIn(email,password)
-      .then(result => {
+      .then(() => {
         Swal.fire(
           'Loged In',
           'You have Loged In successfully',
@@ -100,7 +100,7 @@ const Login = () => {
           </button>
           </div>
           <p className=" text-center sm:px-6 text-black font-semibold">
-          Don't have an account?
+          Dont have an account?
           <Link to = "/signup" className=" ml-2 underline text-red-400">
           Sign up
           </Link>

@@ -17,7 +17,7 @@ const Header = () => {
 
         const handleLogOut = () => {
           LogOut()
-          .then(result => {
+          .then(() => {
             Swal.fire(
               'Loged Out',
               'You have loged Out successfully',
@@ -49,9 +49,22 @@ const Header = () => {
           {links}
           </ul>
           </div>
+          {
+            user &&  <div className="dropdown dropdown-end">
+            <div className="flex items-center gap-1">
+                <p className="flex">{user.displayName}</p>
+            <label tabIndex={0} className="btn bg-green-400 btn-circle avatar ">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL} />
+              </div>
+            </label>
+
+              </div>
+          </div>
+          }
           {  user ? <button onClick={handleLogOut}  className="btn bg-[#e7d1e4] ">LogOut</button> :
           <Link to= "/login" className="btn bg-[#e7d1e4] ">Login</Link>
-                    }
+          }
           </div>
           </div>
           </div>
