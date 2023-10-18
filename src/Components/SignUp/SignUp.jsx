@@ -1,8 +1,7 @@
 import { FcGoogle } from 'react-icons/fc';
-// import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from 'react';
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { updateProfile } from "firebase/auth";
 import { AuthContex } from '../../Contex/AuthProvider';
@@ -17,8 +16,8 @@ const SignUp = () => {
         const [success,setSuccess] = useState('')
         const [showPassword, setShowPassword] = useState(false);
 
-//         const location = useLocation()
-//   const navigate = useNavigate()
+  const location = useLocation()
+  const navigate = useNavigate()
   
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
@@ -31,7 +30,7 @@ const SignUp = () => {
       'You have Created Account successfully',
         'success'
       )
-//       navigate(location?.state ? location.state : '/')
+       navigate(location?.state ? location.state : '/')
      })
  }
 
@@ -70,9 +69,9 @@ const SignUp = () => {
         setSuccess('Account Created Successfully')
 
         })
-//         .catch(error => {
-//         setRegisterError(error.message);
-//         })
+        .catch(error => {
+        setRegisterError(error.message);
+        })
 
         }
 

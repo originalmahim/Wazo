@@ -1,15 +1,48 @@
 
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContex } from './../../Contex/AuthProvider';
+import Swal from 'sweetalert2';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import app from '../../Firebase/firebase.config';
 
 const Login = () => {
 
   const {LogIn} = useContext(AuthContex)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+   
+  const handleGoogleSignup = () => {
+    signInWithPopup(auth,provider)
+    .then(result => {
+      Swal.fire(
+        'Loged In',
+        'You have Loged In successfully',
+          'success'
+      )
+       navigate(location?.state ? location.state : '/')
+     })
+ }
 
   const handleLogin = e => {
       e.preventDefault()
+      const form = e.target;
+      const email = form.email.value;
+      const password = form.password.value;
+      console.log(email,password);
+      LogIn(email,password)
+      .then(result => {
+        Swal.fire(
+          'Loged In',
+          'You have Loged In successfully',
+            'success'
+          )
+          navigate(location?.state ? location.state : '/')
+      })
   }
 
 
@@ -20,7 +53,7 @@ const Login = () => {
           <div className="  max-w-6xl mx-auto flex items-center justify-center h-[80vh] pb-0 ">
           <div className="text-xl w-full max-w-md p-8  border border-black rounded-xl shadow-lg">
           <h1 className="text-2xl font-bold text-center">Login</h1>
-          <form className="space-y-6">
+          <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-1 ">
           <label className="block text-black font-semibold ">Email</label>
           <input
@@ -45,7 +78,7 @@ const Login = () => {
           </a>
           </div>
           </div>
-          <button onClick={handleLogin} className=" btn bg-[#8289eb] block w-full p-3 text-center rounded-lg text-white hover:text-black">Sign in</button>
+          <button  className=" btn bg-[#8289eb] block w-full p-3 text-center rounded-lg text-white hover:text-black">Sign in</button>
           </form>
           <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16"></div>
@@ -53,7 +86,7 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16"></div>
           </div>
           <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button onClick={handleGoogleSignup}  className=" btn-circle p-3 rounded-sm">
           <FcGoogle size={40} />
           </button>
           </div>

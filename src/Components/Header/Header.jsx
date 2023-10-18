@@ -1,8 +1,14 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import { useContext } from 'react';
+import { AuthContex } from "../../Contex/AuthProvider";
 
 
 const Header = () => {
+
+          const {user,LogOut} = useContext(AuthContex)
+
+
           const links = <>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/applied">Add Product</NavLink></li>
@@ -30,7 +36,9 @@ const Header = () => {
           {links}
           </ul>
           </div>
+          {  user ? <button onClick={() => LogOut()}  className="btn bg-[#e7d1e4] ">LogOut</button> :
           <Link to= "/login" className="btn bg-[#e7d1e4] ">Login</Link>
+                    }
           </div>
           </div>
           </div>
