@@ -1,33 +1,56 @@
 import { useLoaderData } from "react-router-dom";
-
-
+import { AiOutlineStar } from 'react-icons/ai';
 const BrandShop = () => {
-          const products = useLoaderData()
-          console.log(products);
-          return (
-          <div className="max-w-7xl mx-auto" >
-          <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2">
-          { products.map(product => 
-        <div key={product.id} className="">
-        <div className="max-w-sm py-32">
-          <div className="bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg">
-            <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80" alt="" />
-            <div className="py-6 px-8 rounded-lg bg-white">
-              <h1 className="text-gray-700 font-bold text-2xl mb-3 hover:text-gray-900 hover:cursor-pointer">I'm supper dog for you.</h1>
-              <p className="text-gray-700 tracking-wide">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, labore. Ea debitis beatae sequi deleniti.</p>
-              <button className="mt-6 py-2 px-4 bg-yellow-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Buy Now</button>
-            </div>
-            <div className="absolute top-2 right-2 py-2 px-4 bg-white rounded-lg">
-              <span className="text-md">$150</span>
-            </div>
+  const products = useLoaderData();
+
+  return (
+    <div className="max-w-7xl mx-auto mt-20 p-4  md:p-8 overflow-x-hidden">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {products.length > 0 ? (
+          products.map((product) => (
+                    <div key={product._id} className="">
+                    <div className="max-w-sm ">
+                      <div className="bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg">
+                        <img className="rounded-t-lg w-full h-72" src={product.imageLink
+} />
+                    <div className="py-6 px-8 rounded-lg bg-white">
+                    <div className="flex justify-between">
+                    <h1 className="text-gray-700  text-xl mb-3 hover:text-gray-900 hover:cursor-pointer">
+                    Name : 
+                    {product.productName}
+                    </h1>
+                    <button className="btn bg-white btn-sm">
+                              $ {product.productPrice}</button>
+                    </div>
+                    <div>
+                    <h1 className="text-gray-700 font-bold text-2xl mb-3 hover:text-gray-900 hover:cursor-pointer">{product.productTitle}</h1>
+                    
+                    </div>
+                          <p className="text-gray-700 tracking-wide">
+                              {product.productDescription}</p>
+                          <div className="flex justify-between items-center">
+                          <button className="mt-6 py-2 px-4 bg-blue-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Details</button>
+                          <button className="btn bg-yellow-400 btn-sm">
+                    <AiOutlineStar></AiOutlineStar>{product.productRating}</button>
+                          </div>
+                        </div>
+                        <div className="absolute top-2 right-2 py-2 px-4 bg-white rounded-lg">
+                          <span className="text-md">{product.productType
+}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          ))
+        ) : (
+          <div className=" text-center max-w-7xl mx-auto ">
+            <h1 className="lg:text-7xl text-3xl text-pink-400 font-semibold lg:ml-[520px]">Sorry</h1>
+            <p className="text-xl lg:ml-[500px] mt-3 text-black">No Products Available</p>
           </div>
-        </div>
-      </div>)
-            
-          }
-          </div>                  
-          </div>
-          );
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default BrandShop;

@@ -10,10 +10,10 @@ const BrandsCard = ({brands}) => {
           <p>Our ALL popular Brands Products Are on Specific Cards</p>
           </div> 
           <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          <div className=" lg:px-0 px-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {
             brands.map(brand => <div key={brand.id} className="relative bg-pink-500 mx-auto w-full shadow-lg rounded-lg ">
-            <div to= "/" className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
+            <div  className="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
             <div className="shadow p-4 rounded-lg bg-white">
             <div className="flex justify-center relative rounded-lg overflow-hidden h-52">
             <div className="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full" style={{ backgroundImage: `url("${brand.brandImageURL}")`, backgroundSize: 'cover' }}>
