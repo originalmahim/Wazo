@@ -35,7 +35,7 @@ const BrandsCard = ({brands}) => {
             </div>
             </div>
             </div>)
-          }
+             }
           </div>
 
           

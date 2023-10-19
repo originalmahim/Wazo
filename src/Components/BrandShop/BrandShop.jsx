@@ -1,10 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AiOutlineStar } from 'react-icons/ai';
 const BrandShop = () => {
   const products = useLoaderData();
 
   return (
     <div className="max-w-7xl mx-auto mt-20 p-4  md:p-8 overflow-x-hidden">
+      
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.length > 0 ? (
           products.map((product) => (
@@ -29,7 +30,9 @@ const BrandShop = () => {
                           <p className="text-gray-700 tracking-wide">
                               {product.productDescription}</p>
                           <div className="flex justify-between items-center">
+                            <Link to = {`/products/${product.brandName}/${product._id}`} >
                           <button className="mt-6 py-2 px-4 bg-blue-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Details</button>
+                          </Link>
                           <button className="btn bg-yellow-400 btn-sm">
                     <AiOutlineStar></AiOutlineStar>{product.productRating}</button>
                           </div>

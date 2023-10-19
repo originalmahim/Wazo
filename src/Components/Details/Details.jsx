@@ -1,6 +1,9 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const Details = () => {
+  const product = useLoaderData()
+  console.log(product);
           return (
           <div>
 <div className="min-w-screen min-h-screen bg-yellow-300 flex items-center p-5 lg:p-10 overflow-hidden relative">
