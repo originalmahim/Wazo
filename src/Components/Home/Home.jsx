@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import BrandsCard from "../BrandsCard/BrandsCard";
+import Special from "../Special/Special";
 
 const Home = () => {
 
@@ -9,7 +10,8 @@ const Home = () => {
           return (
           <div>
           <Banner></Banner>
-          <BrandsCard brands = {brands} ></BrandsCard>              
+          <Special></Special>              
+          <BrandsCard brands = {brands} ></BrandsCard>
           </div>
           );
 };

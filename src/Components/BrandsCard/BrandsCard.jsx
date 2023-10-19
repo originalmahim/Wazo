@@ -5,8 +5,8 @@ const BrandsCard = ({brands}) => {
 
           return (
           <div className="max-w-7xl mx-auto">
-           <div className="text-center text-xl text-black my-4">
-          <h1 className="text-4xl font-semibold">Featured Brands</h1>
+           <div className="text-center text-xl text-black mt-8 mb-16">
+          <h1 className="lg:text-5xl text-4xl font-semibold">Featured Brands</h1>
           <p>Our ALL popular Brands Products Are on Specific Cards</p>
           </div> 
           <div>
