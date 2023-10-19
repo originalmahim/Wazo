@@ -24,7 +24,7 @@ const Promotions = () => {
 
   return (
           <div className="max-w-7xl mx-auto mb-12">
-          <div className="carousel w-full h-52">
+          <div className="carousel w-full lg:h-52 h-32">
           {slidesRef.current.map((slide, index) => (
           <div
           key={index}

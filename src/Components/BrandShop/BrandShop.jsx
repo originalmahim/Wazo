@@ -27,21 +27,22 @@ const BrandShop = () => {
       <h1 className="text-gray-700  text-xl mb-3 hover:text-gray-900 hover:cursor-pointer"> 
       {product.productName}
       </h1>
-      <button className="btn bg-white btn-sm">
-      $ {product.productPrice}</button>
+      <button className="btn bg-yellow-400 btn-sm">
+      <AiOutlineStar></AiOutlineStar>{product.productRating}</button>
       </div>
       <div>
       <h1 className="text-gray-700 font-bold text-2xl mb-3 hover:text-gray-900 hover:cursor-pointer">{product.productTitle}</h1>
 
       </div>
-      <p className="text-gray-700 tracking-wide">
-      {product.productDescription}</p>
+      <p className="text-gray-700 tracking-wide">Price : {product.productPrice}$</p>
       <div className="flex justify-between items-center">
       <Link to = {`/products/${product.brandName}/${product._id}`} >
       <button className="mt-6 py-2 px-4 bg-blue-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Details</button>
       </Link>
-      <button className="btn bg-yellow-400 btn-sm">
-      <AiOutlineStar></AiOutlineStar>{product.productRating}</button>
+      <Link to = {`/update/${product.brandName}/${product._id}`} >
+      <button className="mt-6 py-2 px-4 bg-white text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Update</button>
+      </Link>
+      
       </div>
       </div>
       <div className="absolute top-2 right-2 py-2 px-4 bg-white rounded-lg">
