@@ -1,10 +1,11 @@
 
+import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const MyCart = () => {
-          const cart = useLoaderData()
-          console.log(cart);
+          const bag = useLoaderData()
+          const [cart,setCart] = useState(bag)
           const handleDelete = (_id) => {
            fetch(`http://localhost:5000/cart/${_id}`,{
           method: 'DELETE'
@@ -13,10 +14,13 @@ const MyCart = () => {
            .then(data => {
           console.log(data)
           alert('deleted Successfully')
+          const remaining = cart.filter((item) => item._id !== _id);
+          setCart(remaining);
            })
           }
   return (
           <div className="max-w-7xl mx-auto flex justify-center">
+          { cart.length > 0 ? 
           <div className="w-full px-8">
           <h2 className="text-xl font-semibold text-center">Add To Cart Products</h2>
           <ul className="flex flex-col divide-y ">
@@ -44,7 +48,8 @@ const MyCart = () => {
           </div>
           </div>
           </div>
-          </li> ) }
+          </li> ) 
+          }
           </ul>
           <div className="space-y-1 text-right">
           <p>
@@ -61,7 +66,13 @@ const MyCart = () => {
           <span className="sr-only sm:not-sr-only">Continue to</span> Checkout
           </button>
           </div>
-          </div>
+          </div> : <div className="max-w-xl mt-20 mb-16 mx-auto text-center text-black p-4">
+         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Sorry You Did Not Add Anything to Cart</h2>
+         <p className="mt-4">
+        It looks like your shopping cart is empty. Don't miss out on our fantastic products - explore our collection and fill your cart with the finest items you desire. Elevate your beauty routine with our carefully curated cosmetics, and feel confident and beautiful every day.
+        </p>
+        </div>
+        }
           </div>
   );
 };

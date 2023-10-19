@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const AddProducts = () => {
@@ -30,7 +30,6 @@ const AddProducts = () => {
       productType,
       imageLink,
     };
-    console.log('Product Data:', productData);
 
     fetch('http://localhost:5000/products', {
       method: 'POST',
