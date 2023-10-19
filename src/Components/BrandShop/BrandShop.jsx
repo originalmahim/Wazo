@@ -16,8 +16,7 @@ const BrandShop = () => {
 } />
                     <div className="py-6 px-8 rounded-lg bg-white">
                     <div className="flex justify-between">
-                    <h1 className="text-gray-700  text-xl mb-3 hover:text-gray-900 hover:cursor-pointer">
-                    Name : 
+                    <h1 className="text-gray-700  text-xl mb-3 hover:text-gray-900 hover:cursor-pointer"> 
                     {product.productName}
                     </h1>
                     <button className="btn bg-white btn-sm">
