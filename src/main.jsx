@@ -17,10 +17,12 @@ import PrivateRaute from './Components/PrivateRaute/PrivateRaute';
 import BrandShop from './Components/BrandShop/BrandShop';
 import Details from './Components/Details/Details';
 import Update from './Components/Update/Update';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Header></Header>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
     {
       path:"/",
