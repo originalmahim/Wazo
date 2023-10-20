@@ -34,7 +34,7 @@ const Update = () => {
       imageLink,
     };
 
-    fetch(`http://localhost:5000/products/${defaultProduct.brandName}/${defaultProduct._id}`, {
+    fetch(`https://wazo-backend-code.vercel.app/products/${defaultProduct.brandName}/${defaultProduct._id}`, {
       method: 'PUT', 
       headers: {
         'content-type': 'application/json',

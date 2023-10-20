@@ -31,7 +31,7 @@ const AddProducts = () => {
       imageLink,
     };
 
-    fetch('http://localhost:5000/products', {
+    fetch('https://wazo-backend-code.vercel.app/products', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

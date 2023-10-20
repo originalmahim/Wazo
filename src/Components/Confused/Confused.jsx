@@ -16,11 +16,11 @@ const Confused = () => {
           <h2 className="text-3xl font-bold sm:text-4xl">Need Inspiration?</h2>
 
           <p className="mt-4 text-gray-600">
-          Discover the world of possibilities with our curated selection of products. We're here to ignite your creativity and provide you with the inspiration you need. At our e-commerce store, we're more than just a shopping destination; we're a source of ideas and innovation.
+          Discover the world of possibilities with our curated selection of products. We are here to ignite your creativity and provide you with the inspiration you need. At our e-commerce store, we are more than just a shopping destination; we are a source of ideas and innovation.
 
-          Whether you're searching for the latest trends or timeless classics, we've got you covered. Our commitment to high-quality products and exceptional customer service sets us apart. We don't just sell products; we deliver satisfaction and peace of mind. With our user-friendly website, secure payment options, and swift shipping, we make your shopping experience seamless and inspiring.
+          Whether you are searching for the latest trends or timeless classics, we have got you covered. Our commitment to high-quality products and exceptional customer service sets us apart. We donot just sell products; we deliver satisfaction and peace of mind. With our user-friendly website, secure payment options, and swift shipping, we make your shopping experience seamless and inspiring.
 
-          Don't wait any longer – take the first step and embark on your journey of inspiration today.
+          Do not wait any longer  take the first step and embark on your journey of inspiration today.
           </p>
 
           <a

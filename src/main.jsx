@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     {
       path:"/",
       element: <Home></Home>,
-      loader: () => fetch('http://localhost:5000/brands')
+      loader: () => fetch('https://wazo-backend-code.vercel.app/brands')
       },
     {
       path: "/about",
@@ -48,22 +48,22 @@ const router = createBrowserRouter([
     {
       path: "/cart",
       element: <PrivateRaute><MyCart></MyCart></PrivateRaute>,
-      loader: () => fetch('http://localhost:5000/cart')
+      loader: () => fetch('https://wazo-backend-code.vercel.app/cart')
     },
     {
       path: "/products/:brandName",
       element: <PrivateRaute><BrandShop></BrandShop></PrivateRaute>,
-     loader: ({params}) => fetch(`http://localhost:5000/products/${params.brandName}`)
+     loader: ({params}) => fetch(`https://wazo-backend-code.vercel.app/products/${params.brandName}`)
     },
     {
       path: "/products/:brandName/:id",
       element: <PrivateRaute><Details></Details></PrivateRaute> ,
-      loader: ({params}) => fetch(`http://localhost:5000/products/${params.brandName}/${params.id}`)
+      loader: ({params}) => fetch(`https://wazo-backend-code.vercel.app/products/${params.brandName}/${params.id}`)
     },
     {
       path: '/update/:brandName/:id',
       element: <PrivateRaute><Update></Update></PrivateRaute>,
-      loader: ({params}) => fetch(`http://localhost:5000/products/${params.brandName}/${params.id}`)
+      loader: ({params}) => fetch(`https://wazo-backend-code.vercel.app/products/${params.brandName}/${params.id}`)
     }
   ]
   },

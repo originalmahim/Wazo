@@ -7,7 +7,7 @@ const MyCart = () => {
           const bag = useLoaderData()
           const [cart,setCart] = useState(bag)
           const handleDelete = (_id) => {
-           fetch(`http://localhost:5000/cart/${_id}`,{
+           fetch(`https://wazo-backend-code.vercel.app/cart/${_id}`,{
           method: 'DELETE'
            })
            .then(res => res.json())
@@ -69,7 +69,7 @@ const MyCart = () => {
           </div> : <div className="max-w-xl mt-20 mb-16 mx-auto text-center text-black p-4">
          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Sorry You Did Not Add Anything to Cart</h2>
          <p className="mt-4">
-        It looks like your shopping cart is empty. Don't miss out on our fantastic products - explore our collection and fill your cart with the finest items you desire. Elevate your beauty routine with our carefully curated cosmetics, and feel confident and beautiful every day.
+        It looks like your shopping cart is empty. Do not miss out on our fantastic products - explore our collection and fill your cart with the finest items you desire. Elevate your beauty routine with our carefully curated cosmetics, and feel confident and beautiful every day.
         </p>
         </div>
         }

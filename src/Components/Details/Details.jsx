@@ -12,7 +12,7 @@ const Details = () => {
     const url = product.imageLink;
     const cart = {productName,productPrice,productType,productBrand,productTitle,url}
     console.log(cart);
-    fetch('http://localhost:5000/cart',{
+    fetch('https://wazo-backend-code.vercel.app/cart',{
       method: 'POST',
       headers:{
         'content-type':'application/json'
