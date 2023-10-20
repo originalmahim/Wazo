@@ -30,7 +30,9 @@ const BrandsCard = ({brands}) => {
             <h2 className="font-medium text-base md:text-lg text-gray-800 line-clamp-1">
             {brand.brandName}
             </h2>
-            <button className="btn" ><Link to = {`/products/${brand.brandName}`} >Show All Products</Link></button>
+            <Link to = {`/products/${brand.brandName}`} >
+            <button className="btn" >Show All Products</button>
+            </Link>
             </div>
             </div>
             </div>

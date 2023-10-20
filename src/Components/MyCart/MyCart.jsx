@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 import { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -7,18 +7,33 @@ const MyCart = () => {
           const bag = useLoaderData()
           const [cart,setCart] = useState(bag)
           const handleDelete = (_id) => {
-           fetch(`https://wazo-backend-code.vercel.app/cart/${_id}`,{
-          method: 'DELETE'
-           })
-           .then(res => res.json())
-           .then(data => {
-          console.log(data)
-          alert('deleted Successfully')
-          const remaining = cart.filter((item) => item._id !== _id);
-          setCart(remaining);
-           })
+          Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+          if (result.isConfirmed) {
+        fetch(`https://wazo-backend-code.vercel.app/cart/${_id}`,{
+        method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(() => {
+        Swal.fire(
+        'Deleted!',
+        'Your Product has been deleted.',
+        'success')
+        const remaining = cart.filter((item) => item._id !== _id);
+        setCart(remaining);
+        })
+        }
+        })
+        
           }
-  return (
+          return (
           <div className="max-w-7xl mx-auto flex justify-center">
           { cart.length > 0 ? 
           <div className="w-full px-8">
@@ -63,7 +78,7 @@ const MyCart = () => {
           <span className="sr-only sm:not-sr-only">to shop</span>
           </button></Link>
           <button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400">
-          <span className="sr-only sm:not-sr-only">Continue to</span> Checkout
+          <span className="sr-only sm:not-sr-only">Confim </span> order
           </button>
           </div>
           </div> : <div className="max-w-xl mt-20 mb-16 mx-auto text-center text-black p-4">
