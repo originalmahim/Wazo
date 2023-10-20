@@ -88,6 +88,7 @@ const Update = () => {
                   <option value="L'Oréal">L'Oréal</option>
                   <option value="Estée Lauder">Estée Lauder</option>
                   <option value="Chanel">Chanel</option>
+                  <option value="Urban Decay">Urban Decay</option>
                   <option value="Dior">Dior</option>
                   <option value="Dove">Dove</option>
                 </select>

@@ -57,8 +57,12 @@ const Details = () => {
 
           </div>
           <div className="inline-block align-bottom">
-          <button onClick={handleAddtocart} className="bg-yellow-400 btn  text-black
+          { product.productPrice == 0 ? 
+            <button  className="bg-blue-400   text-black
+          rounded-full px-10 py-2 font-semibold"> Not Availavle</button> :
+            <button onClick={handleAddtocart} className="bg-yellow-400 btn  text-black
           rounded-full px-10 py-2 font-semibold"> Add To Cart</button>
+          }
           </div>
           </div>
           </div>
