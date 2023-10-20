@@ -7,6 +7,7 @@ import { updateProfile } from "firebase/auth";
 import { AuthContex } from '../../Contex/AuthProvider';
 import Swal from 'sweetalert2'
 import app from '../../Firebase/firebase.config';
+import { Helmet } from 'react-helmet';
 
 
 const SignUp = () => {
@@ -87,6 +88,9 @@ const SignUp = () => {
 
           return (
           <div className='bg-[#FEF6FD]'>
+            <Helmet>
+              <title>Wazo - Sign Up</title>
+            </Helmet>
           <div className="max-w-7xl mx-auto  text-xl mb-6  ">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full   shadow-lg border border-black rounded-lg text-xl   md:mt-0 sm:max-w-md xl:p-0 ">

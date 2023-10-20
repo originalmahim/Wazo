@@ -1,6 +1,6 @@
 import  { useState } from 'react';
 import Swal from 'sweetalert2';
-
+import {Helmet} from "react-helmet";
 const AddProducts = () => {
   const [brandName, setBrandName] = useState('');
 
@@ -52,11 +52,14 @@ const AddProducts = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-5 sm:mt-32">
-      <div className="border-2 p-5 bg-base-300">
+      <Helmet>
+        <title>Wazo - Add Product</title>
+      </Helmet>
+      <div className="border-2 p-5 bg-[#f5ccd3]">
         <div className="text-center text-black text-xl">
           <h1 className="font-bold">Add New Product</h1>
           <p>
-            Explore our carefully curated selection and find the perfect products to pamper yourself and enhance your beauty. Join us on a journey of self-expression and self-care with our high-quality cosmetics.
+            Explore our carefully curated selection and find the perfect products to pamper yourself and enhance your beauty.
           </p>
         </div>
         <div className="my-5 text-black">

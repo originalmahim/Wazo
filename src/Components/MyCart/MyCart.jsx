@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
-
+import {Helmet} from "react-helmet";
 const MyCart = () => {
   const bag = useLoaderData();
   const [cart, setCart] = useState(bag);
@@ -47,6 +47,9 @@ const MyCart = () => {
 
   return (
       <div className="max-w-7xl mx-auto flex justify-center">
+        <Helmet>
+          <title>Wazo - My Cart</title>
+        </Helmet>
       {cart.length > 0 ? (
       <div className="w-full px-8">
       <h2 className="text-xl font-semibold text-center">Add To Cart Products</h2>

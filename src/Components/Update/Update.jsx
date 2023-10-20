@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -54,13 +55,13 @@ const Update = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mt-5 sm:mt-32">
-      <div className="border-2 p-5 bg-base-300">
+    <div className="max-w-7xl mx-auto mt-5 sm:mt-32 ">
+      <Helmet>
+        <title>Wazo - Update Product</title>
+      </Helmet>
+      <div className="border-2 p-5 bg-[#f5ccd3] rounded-lg shadow-lg">
         <div className="text-center text-black text-xl">
           <h1 className="font-bold">Update Product Details for {defaultProduct.productName}</h1>
-          <p>
-            Explore our carefully curated selection and find the perfect products to pamper yourself and enhance your beauty. Join us on a journey of self-expression and self-care with our high-quality cosmetics.
-          </p>
         </div>
         <div className="my-5 text-black">
           <form onSubmit={handleUpdate} className="px-2 sm:px-20">
@@ -97,11 +98,11 @@ const Update = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <h1 className="ml-1">Product Rating: </h1>
-                <input className="w-full pl-2 h-10 rounded-lg text-black" defaultValue={defaultProduct.productRating} type="text" name="rating" required />
+                <input className="w-full pl-2 h-10 rounded-lg text-black" defaultValue={defaultProduct.productRating} type="number" name="rating" required />
               </div>
               <div>
                 <h1 className="ml-1">Product Price: </h1>
-                <input className="w-full pl-2 h-10 rounded-lg text-black" defaultValue={defaultProduct.productPrice} type="text" name="price" required />
+                <input className="w-full pl-2 h-10 rounded-lg text-black" defaultValue={defaultProduct.productPrice} type="number" name="price" required />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

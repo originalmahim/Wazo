@@ -1,12 +1,15 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { AiOutlineStar } from 'react-icons/ai';
 import Promotions from "../Promotions/Promotions";
+import {Helmet} from "react-helmet";
 const BrandShop = () => {
   const products = useLoaderData();
 
   return (
       <div className="max-w-7xl mx-auto mt-20 p-4  md:p-8 overflow-x-hidden">
-      
+      <Helmet>
+        <title>Wazo - Shop</title>
+      </Helmet>
       { products.length > 0 && <div className="max-w-xl mb-16 mx-auto text-center text-black">
       <h2 className="text-2xl sm:text-3xl  md:text-4xl lg:text-5xl font-bold">Discover Our Unique Beauty Products</h2>
       <p className="mt-4">

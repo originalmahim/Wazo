@@ -14,7 +14,7 @@ const Banner = () => {
             }}
             >
             <div data-aos="fade-right" className="text-black lg:ml-44 md:ml-6 -ml-3 lg:mt-60 -mt-8 md:mt-20 p-20 lg:p-0">
-            <h1 className=" lg:font-bold font-semibold lg:text-7xl md:text-4xl text-xl ">Making Special <br /> Memories For You <br /> With Wazo</h1>
+            <h1 className=" lg:font-bold font-semibold lg:text-7xl md:text-4xl text-xl ">Make Special <br /> Memories For You <br /> With Wazo</h1>
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide4" className="btn btn-circle">

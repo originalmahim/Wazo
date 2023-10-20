@@ -6,7 +6,7 @@ import { AuthContex } from './../../Contex/AuthProvider';
 import Swal from 'sweetalert2';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import app from '../../Firebase/firebase.config';
-
+import {Helmet} from "react-helmet";
 const Login = () => {
 
   const {LogIn} = useContext(AuthContex)
@@ -56,6 +56,9 @@ const Login = () => {
 
   return (
           <div className='bg-[#FEF6FD] px-4 md:px-0 lg:px-0 mt-10' >
+          <Helmet>
+          <title>Wazo - Log In</title>
+            </Helmet>
           <div className="  max-w-6xl mx-auto flex items-center justify-center h-[80vh] pb-0 ">
           <div className="text-xl w-full max-w-md p-8  border border-black rounded-xl shadow-lg">
           <h1 className="text-2xl font-bold text-center">Login</h1>
