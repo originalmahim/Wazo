@@ -4,15 +4,17 @@ import { useContext } from 'react';
 import { AuthContex } from "../../Contex/AuthProvider";
 import Swal from 'sweetalert2';
 
+import { BiLogOutCircle, BiCartAlt } from 'react-icons/bi';
+
 const Header = () => {
 
           const {user,LogOut} = useContext(AuthContex)
 
 
           const links = <>
-          <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink  to="/">Home</NavLink></li>
           <li><NavLink to="/addproduct">Add Product</NavLink></li>
-          <li><NavLink to="/cart">My Cart</NavLink></li>
+          <li><NavLink  to="/cart"><BiCartAlt className="text-xl"></BiCartAlt> Cart</NavLink></li>
           </>
 
         const handleLogOut = () => {
@@ -43,26 +45,37 @@ const Header = () => {
           </div>
           <img className="w-24" src="https://i.ibb.co/DMcxGH5/l8uywj4i.png" />
           </div>
-          <div className="navbar-end">
-          <div className="hidden lg:flex">
+          <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
           {links}
           </ul>
           </div>
+          <div className="navbar-end">
           {
             user &&  <div className="dropdown dropdown-end">
-            <div className="flex items-center gap-1">
-                <p className="flex">{user.displayName}</p>
-            <label tabIndex={0} className="btn bg-green-400 btn-circle avatar ">
-              <div className="w-10 rounded-full">
-                <img src={user.photoURL} />
-              </div>
-            </label>
+             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src={user.photoURL} />
+        </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <div className=" px-2 border-b pb-2">
+          <img
+            className="h-24 w-24 rounded-full mx-auto"
+            src={user.photoURL}
+          />
+          <p className="pt-2 text-lg font-semibold">{user.displayName}</p>
+          <p className="text-sm text-gray-600">{user.email}</p>
+        </div>
 
-              </div>
+        <div className="mt-1">
+        <button onClick={handleLogOut}  className="btn btn-sm bg-[#e7d1e4] ">LogOut <BiLogOutCircle className="text-xl"></BiLogOutCircle></button>
+        </div>
+      
+      </ul>
           </div>
           }
-          {  user ? <button onClick={handleLogOut}  className="btn bg-[#e7d1e4] ">LogOut</button> :
+          {  user ? '' :
           <Link to= "/login" className="btn bg-[#e7d1e4] ">Login</Link>
           }
           </div>
