@@ -11,8 +11,8 @@ const Home = () => {
           return (
           <div>
           <Banner></Banner>
-          <Special></Special>              
           <BrandsCard brands = {brands} ></BrandsCard>
+          <Special></Special>              
           <Confused></Confused>
           </div>
           );

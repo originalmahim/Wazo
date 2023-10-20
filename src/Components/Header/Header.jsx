@@ -76,7 +76,7 @@ const Header = () => {
           </div>
           }
           {  user ? '' :
-          <Link to= "/login" className="btn bg-[#e7d1e4] ">Login</Link>
+          <Link to= "/login" className="btn bg-[#f5ccd3] ">Login</Link>
           }
           </div>
           </div>

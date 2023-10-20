@@ -3,7 +3,7 @@ import { FaHeart, FaSmile, FaStar, FaGift } from 'react-icons/fa';
 
 const Special = () => {
           return (
-          <div className='bg-[#FEF6FD]'>
+          <div className='bg-[#f5ccd3] mt-16'>
           <div className='max-w-7xl mx-auto'>
 
   <div className="px-4  py-8 lg:py-16 lg:px-8">
