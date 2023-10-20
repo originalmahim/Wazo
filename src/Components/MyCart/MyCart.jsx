@@ -59,7 +59,7 @@ const MyCart = () => {
       />
       <div className="flex flex-col justify-between w-full pb-4">
       <div className="flex justify-between w-full pb-2 space-x-2">
-      <div className="space-y-1">
+      <div className="space-y-1 ml-3">
       <h3 className="text-lg font-semibold leading sm:pr-8">{cart.productName}</h3>
       <h3 className="text-lg font-semibold leading sm:pr-8">{cart.productTitle}</h3>
       <p className="text-sm dark:text-gray-400">{cart.productType}</p>
