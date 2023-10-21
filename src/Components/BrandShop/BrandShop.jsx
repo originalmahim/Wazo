@@ -38,6 +38,9 @@ const BrandShop = () => {
 
       </div>
       <p className="text-gray-700 tracking-wide">Price : {product.productPrice}$</p>
+      { product.productPrice == 0 && 
+         <h2 className="text-red-400">Sorry This Product Is Not Available</h2>
+      }
       <div className="flex justify-between items-center">
       <Link to = {`/products/${product.brandName}/${product._id}`} >
       <button className="mt-6 py-2 px-4 bg-blue-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">Details</button>

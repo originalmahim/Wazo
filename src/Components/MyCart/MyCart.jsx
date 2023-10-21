@@ -1,13 +1,15 @@
 import Swal from 'sweetalert2';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import {Helmet} from "react-helmet";
+import { AuthContex } from '../../Contex/AuthProvider';
 const MyCart = () => {
+  const {user} = useContext(AuthContex)
   const bag = useLoaderData();
   const [cart, setCart] = useState(bag);
   const [totalAmount, setTotalAmount] = useState(0);
-
+  const isMatchingUser = cart.map(car => car.userEmail === user.email).includes(true);
   useEffect(() => {
     const calculateTotalAmount = (cart) => {
       const total = cart.reduce((acc, item) => acc + parseFloat(item.productPrice), 0);
@@ -50,6 +52,9 @@ const MyCart = () => {
         <Helmet>
           <title>Wazo - My Cart</title>
         </Helmet>
+      {  isMatchingUser ?
+
+      (<div>
       {cart.length > 0 ? (
       <div className="w-full px-8">
       <h2 className="text-xl font-semibold text-center">Add To Cart Products</h2>
@@ -103,6 +108,13 @@ const MyCart = () => {
       </p>
       </div>
       )}
+      </div>) : 
+      (<div className="max-w-xl mt-20 mb-16 mx-auto text-center text-black p-4">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Sorry You Did Not Add Anything to Cart</h2>
+      <p className="mt-4">
+      </p>
+      </div>)
+        }
     </div>
   );
 };

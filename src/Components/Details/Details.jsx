@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { AuthContex } from './../../Contex/AuthProvider';
 
 const Details = () => {
+  const {user} = useContext(AuthContex)
   const product = useLoaderData()
   const handleAddtocart = () => {
     const productName = product.productName;
@@ -11,7 +14,8 @@ const Details = () => {
     const productBrand = product.brandName;
     const productTitle = product.productTitle;
     const url = product.imageLink;
-    const cart = {productName,productPrice,productType,productBrand,productTitle,url}
+     const userEmail = user.email;
+    const cart = {userEmail,productName,productPrice,productType,productBrand,productTitle,url}
     console.log(cart);
     fetch('https://wazo-backend-code.vercel.app/cart',{
       method: 'POST',

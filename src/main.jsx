@@ -64,6 +64,10 @@ const router = createBrowserRouter([
       path: '/update/:brandName/:id',
       element: <PrivateRaute><Update></Update></PrivateRaute>,
       loader: ({params}) => fetch(`https://wazo-backend-code.vercel.app/products/${params.brandName}/${params.id}`)
+    },
+    {
+      path: '/about',
+      element: <About></About>
     }
   ]
   },
